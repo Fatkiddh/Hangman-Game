@@ -26,7 +26,6 @@ var randomWord;
 var buildWord
 
 
-
 function clear(){
   incorrectLettersGuessed=[];
   guessForthisTeam= [];
@@ -67,18 +66,18 @@ function runGame(){
     var finishedWord;
     guessCounter=0;
 
+
       for (var j = 0; j < TEAMS.length; j++) {
 
-        if (userGuessCaps===TEAMS[j]) {
+        if (userGuessCaps===guessForthisTeam[j]) {
           guessForthisTeam[j]=userGuessCaps[j]
           document.getElementById('teamToGuessFor').innerHTML=guessForthisTeam;
           finishedWord = guessForthisTeam.join("");
           buildWord= guessForthisTeam.join("");
-
         }
       }
 
-      for (var k = 0; k < TEAMS.length; k++) {
+      for (var k = 0; k < guessForthisTeam.length; k++) {
         if(userGuessCaps==guessForthisTeam[k]){
           guessCounter+=1;
         }
@@ -90,7 +89,6 @@ function runGame(){
       }
 
       if(guessesRemaining<1){
-        document.getElementById('gameOver').innerHTML="GAME OVER!";
         alert("GAME OVER");
         location.reload();
       }
